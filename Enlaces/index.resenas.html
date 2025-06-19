@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DwNo &n: Shop</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="..\CSS/resenastyle.css">
+    <link Type="image/x-icon" href="..\Ícons/principalLogo.png" rel="Shorcut icon">
+</head>
+<body>
+
+<!-------------------- BARRA LATERAL------------------------>
+
+<!--Diseño-->
+<div class="sidebar">
+    <div class="page-name">
+        <ion-icon id="menu" name="menu-outline"></ion-icon>
+        <span class="main">Dwelling Novo &n: Reseñas</span>
+    </div>
+<!--buttons-->
+
+    <button onclick="location.href='../index.html'">
+        <ion-icon id="house" name="home-outline"></ion-icon>
+        <span>Inicio</span>
+    </button>
+
+    <button onclick="location.href='index.shop.html'">
+        <ion-icon name="cart-outline"></ion-icon>
+        <span>Shop</span>
+    </button>
+
+    <button onclick="location.href='index.reseñas.html'">
+        <ion-icon name="people-circle-outline"></ion-icon>
+        <span>Reseñas</span>
+    </button>
+
+    <button onclick="location.href='index.favorites.html'">
+        <ion-icon name="star-half-outline"></ion-icon>
+        <span>Favoritos</span>
+    </button>
+
+    <button id="login-btn">
+        <ion-icon name="log-in-outline"></ion-icon>
+        <span>Iniciar Sesión</span>
+    </button>
+</div>
+
+<!--Java-->
+<script src="..\JVS/scripts.resenas.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+<!-------------------- FIN BARRA LATERAL-------------------->
+
+
+<!-- CONTENIDO-->
+    <div class="main-content">
+        <div class="review-links">
+            <a href="#reseñas-existentes" class="review-link">Ver Reseñas</a>
+            <a href="#crear-reseña" class="review-link">Crear Reseña</a>
+        </div>
+
+        <section class="testimonials" id="reseñas-existente">
+            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"La calidad de los muebles superó mis expectativas. La recomiendo muchísimo para quienes buscan un sitio especial para darle vida  asus hogares."</p>
+                    <p class="testimonial-author">- Alexandra Delcid</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"El servicio de atención al cliente es excepcional. Me ayudaron a encontrar exactamente lo que buscaba para mi hogar. 10/10."</p>
+                    <p class="testimonial-author">- Carlos Montenegro</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Muy especial la experiencia. Por más lugares así en el país!!"</p>
+                    <p class="testimonial-author">- Lenin Ordoñez</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Satisfecho, pero puede ser mejor..."</p>
+                    <p class="testimonial-author">- Walter Pineda</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Masiso, excelente calidad y servicio a precios decentes👌"</p>
+                    <p class="testimonial-author">- Jose Villalobos</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Ta bueno👍"</p>
+                    <p class="testimonial-author">- Glenis Torres</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="review-section" id="crear-reseña">
+            <h2 class="section-title">Deja tu reseña</h2>
+            <div class="review-container">
+                <!-- Formulario -->
+                <form id="reviewForm" class="review-form">
+                    <div class="form-group">
+                        <label for="userName">Nombre:</label>
+                        <input type="text" id="userName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Calificación:</label>
+                        <div class="rating-stars">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
+                        <input type="hidden" id="ratingValue" value="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reviewText">Reseña:</label>
+                        <textarea id="reviewText" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar Reseña</button>
+                </form>
+            </div>
+        </section>
+    </div>
+</body>
+
+
+<!-------------------------FOOTER--------------------------->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section logo-section">
+            <img src="..\Ícons/principalLogo.png" alt="Logo DwNo &n" class="footer-logo">
+        </div>
+        <div class="footer-section">
+            <h3>Sobre Dwelling Novo &n</h3>
+            <p>Desde 2020 brindando los mobiliarios de mejor gama al alcance de nuestros clientes. Convirtámos su <span>Casa</span> en un <span>Hogar</span>, y su <span>Hogar</span> en un <span>Palacio.</span></p>
+        </div>
+        <div class="footer-section">
+            <h3>Contáctanos</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Av. Los Andes, San Pedro Sula</p>
+            <p><i class="fas fa-phone"></i> +504 9545 5577</p>
+            <p><i class="fas fa-envelope"></i> DwNo&n@</p>
+        </div>
+        <div class="footer-section">
+            <h3>Horario</h3>
+            <p>Lunes a Viernes: 8am - 10pm</p>
+            <p>Sábados: 10am - 8pm</p>
+            <p>Domingos: Cerrado</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2020 DWELLING NOVO &n. Todos los derechos reservados.</p>
+    </div>
+</footer>
+<!--------------------FIN FOOTER--------------------------->
+
+</html>

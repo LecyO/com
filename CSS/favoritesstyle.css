@@ -215,11 +215,21 @@ body {
 {
     margin-left: 250px;
     transition: margin-left 0.3s ease;
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto;    
+    padding: 0 15px;
 }
 
 .mini ~ .main-content 
 {
     margin-left: 80px;
+}
+
+@media (min-width: 768px) {
+  .contenedor-principal {
+    padding: 0 30px;
+  }
 }
 
 .section-title {

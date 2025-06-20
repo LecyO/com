@@ -82,7 +82,7 @@ document.getElementById('register-link').addEventListener('click', (e) => {
 
 // Control del menú móvil
 document.addEventListener('DOMContentLoaded', function() {
-    const menuBtn = document.getElementById("menu");
+    const menuBtn = document.getElementById(".celu.btn");
     const sidebar = document.querySelector(".sidebar");
     
     menuBtn.addEventListener("click", function() {

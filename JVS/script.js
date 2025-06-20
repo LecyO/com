@@ -2,38 +2,29 @@ const menu = document.getElementById("menu");
 const sidebar = document.querySelector(".sidebar");
 const spans = document.querySelectorAll(".sidebar span:not(.page-name span)");
 
-
-menu.addEventListener("click", () => {
+// Función para alternar el menú
+function toggleSidebar() {
     sidebar.classList.toggle("mini");
     
     spans.forEach(span => {
         span.classList.toggle("hidden");
     });
-});
-
-//scroll
-function smoothScrollTo(target) {
-    const element = document.querySelector(target);
-    if (element) {
-        element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }
 }
+menu.addEventListener("click", toggleSidebar);
 
-document.addEventListener('DOMContentLoaded', function() {
-    const aboutButton = document.querySelector('.sidebar button[onclick*="about"]') || 
-                       document.querySelector('.sidebar button:has(span:contains("About"))');
+// Evento para el botón móvil (celu-btn)
+document.querySelector(".celu-btn").addEventListener("click", function() {
+    sidebar.classList.toggle("active");
     
-    if (aboutButton) {
-        aboutButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            smoothScrollTo('#about-section'); 
-        });
-    }
+    // Bloquear el scroll del body cuando el menú está abierto
+    document.body.style.overflow = sidebar.classList.contains("active") ? "hidden" : "auto";
 });
 
+// Cerrar menú al cambiar tamaño de pantalla
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 992) {
+        sidebar.classList.remove("active", "mini");
+        document.body.style.overflow = "auto";
 
 //LOGIN
 const loginBtn = document.getElementById('login-btn');

@@ -450,7 +450,8 @@ body {
 {
     background-color: var(--secondary-color);
     color: var(--white);
-
+    margin-left: 250px;
+    transition: margin-left 0.4s ease;
 }
 
 .footer-content 
@@ -498,7 +499,6 @@ body {
 
 .footer-bottom 
 {
-    width: 100px;
     text-align: center;
     padding: 2%;
     background-color: #2a2a2a;

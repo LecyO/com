@@ -516,45 +516,64 @@ body {
 
 
 /* Versión celular */
-@media (max-width: 800px) {
+@media (max-width: 992px) {
     .sidebar {
         transform: translateX(-100%);
-        transition: transform 0.4s ease;
-        z-index: 1000;
+        transition: transform 0.3s ease;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
     }
     
     .sidebar.mini {
-        transform: translateX(0);
-        width: 250px;
+        transform: translateX(-100%);
     }
     
-    .footer,
     .main-content {
+        margin-left: 0 !important;
+    }
+    
+    .footer {
         margin-left: 0 !important;
         width: 100% !important;
     }
     
-    .footer-content {
-        grid-template-columns: 1fr;
-        padding: 30px 15px;
-    }
-
-    
-/*BOTON CELULAR*/
     .celu-btn {
-        display: block;
+        display: flex !important;
         position: fixed;
-        top: 15px;
-        left: 15px;
+        top: 20px;
+        left: 20px;
         background: var(--accent-color);
-        color: white;
+        color: var(--secondary-color);
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        display: flex;
         align-items: center;
         justify-content: center;
         z-index: 1100;
         cursor: pointer;
     }
+    
+    #menu {
+        display: none;
+    }
+}
+
+/* Overlay para móviles */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    display: none;
+}
+
+.sidebar.active ~ .sidebar-overlay {
+    display: block;
+}
+
 /*-------------------------FIN FOOTER------------------------------------------------*/

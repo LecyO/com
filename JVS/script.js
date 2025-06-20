@@ -1,32 +1,61 @@
+// Elementos del DOM
 const menu = document.getElementById("menu");
 const sidebar = document.querySelector(".sidebar");
 const spans = document.querySelectorAll(".sidebar span:not(.page-name span)");
+const celuBtn = document.querySelector(".celu-btn");
+const overlay = document.querySelector(".sidebar-overlay");
 
-// Función para alternar el menú
-function toggleSidebar() {
+// Función para alternar el sidebar (versión mini)
+function toggleMiniSidebar() {
     sidebar.classList.toggle("mini");
     
     spans.forEach(span => {
         span.classList.toggle("hidden");
     });
 }
-menu.addEventListener("click", toggleSidebar);
 
-// Evento para el botón móvil (celu-btn)
-document.querySelector(".celu-btn").addEventListener("click", function() {
+// Función para alternar el sidebar en móviles
+function toggleMobileSidebar() {
     sidebar.classList.toggle("active");
     
     // Bloquear el scroll del body cuando el menú está abierto
     document.body.style.overflow = sidebar.classList.contains("active") ? "hidden" : "auto";
-});
+}
+
+// Cerrar menú al hacer clic en el overlay
+overlay.addEventListener("click", toggleMobileSidebar);
+
+// Event Listeners
+menu.addEventListener("click", toggleMiniSidebar);
+celuBtn.addEventListener("click", toggleMobileSidebar);
 
 // Cerrar menú al cambiar tamaño de pantalla
 window.addEventListener('resize', function() {
     if (window.innerWidth > 992) {
-        sidebar.classList.remove("active", "mini");
+        sidebar.classList.remove("active");
         document.body.style.overflow = "auto";
+    } else {
+        sidebar.classList.remove("mini");
+    }
+});
 
-//LOGIN
+// Smooth Scroll
+function smoothScrollTo(target) {
+    const element = document.querySelector(target);
+    if (element) {
+        element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+document.querySelector('.about-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    smoothScrollTo('#about-section');
+});
+
+// LOGIN MODAL
 const loginBtn = document.getElementById('login-btn');
 const loginModal = document.createElement('div');
 
@@ -66,23 +95,4 @@ document.querySelector('#login-modal .close-modal').addEventListener('click', ()
 document.getElementById('register-link').addEventListener('click', (e) => {
     e.preventDefault();
     document.getElementById('login-modal').style.display = 'none';
-    document.getElementById('register-modal').style.display = 'block';
-
-});
-
-
-// Control del menú móvil
-document.addEventListener('DOMContentLoaded', function() {
-    const menuBtn = document.getElementById(".celu.btn");
-    const sidebar = document.querySelector(".sidebar");
-    
-    menuBtn.addEventListener("click", function() {
-        sidebar.classList.toggle("mini");
-    });
-});
-// Controlar cambios de tamaño de pantalla
-window.addEventListener('resize', function() {
-    if (window.innerWidth > 992) {
-        sidebar.style.transform = '';
-    }
 });

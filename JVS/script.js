@@ -81,35 +81,14 @@ document.getElementById('register-link').addEventListener('click', (e) => {
 
 
 // Control del menú móvil
-// Elementos del DOM
-const menuBtn = document.getElementById("menu");
-const celuBtn = document.querySelector(".celu-btn");
-const sidebar = document.querySelector(".sidebar");
-const spans = document.querySelectorAll(".sidebar span:not(.page-name span)");
-
-// Función para alternar barra lateral
-function toggleSidebar() {
-    sidebar.classList.toggle("mini");
+document.addEventListener('DOMContentLoaded', function() {
+    const menuBtn = document.getElementById("menu");
+    const sidebar = document.querySelector(".sidebar");
     
-    // Ocultar/mostrar textos
-    spans.forEach(span => {
-        span.classList.toggle("hidden");
-    });
-}
-
-// Event listeners
-menuBtn.addEventListener("click", toggleSidebar);
-celuBtn.addEventListener("click", toggleSidebar);
-
-// Cerrar menú al hacer clic en enlaces (solo móvil)
-document.querySelectorAll('.sidebar a, .sidebar button').forEach(item => {
-    item.addEventListener('click', () => {
-        if (window.innerWidth <= 992) {
-            sidebar.classList.remove('mini');
-        }
+    menuBtn.addEventListener("click", function() {
+        sidebar.classList.toggle("mini");
     });
 });
-
 // Controlar cambios de tamaño de pantalla
 window.addEventListener('resize', function() {
     if (window.innerWidth > 992) {

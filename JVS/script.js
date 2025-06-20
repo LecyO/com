@@ -78,3 +78,20 @@ document.getElementById('register-link').addEventListener('click', (e) => {
     document.getElementById('register-modal').style.display = 'block';
 
 });
+
+
+// Control del menú móvil
+const celubtn = document.querySelector('.celu-btn');
+const sidebar = document.querySelector('.sidebar');
+
+celubtn.addEventListener('click', () => {
+    sidebar.classList.toggle('mini');
+});
+
+document.querySelectorAll('.sidebar a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 992) {
+            sidebar.classList.remove('mini');
+        }
+    });
+});

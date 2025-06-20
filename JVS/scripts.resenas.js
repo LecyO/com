@@ -4,11 +4,18 @@ const spans = document.querySelectorAll(".sidebar span:not(.page-name span)");
 
 
 menu.addEventListener("click", () => {
-    sidebar.classList.toggle("mini");
-    
-    spans.forEach(span => {
-        span.classList.toggle("hidden");
-    });
+    if (window.innerWidth <= 768) {
+        // En móviles, solo mostrar/ocultar los textos sin cambiar el ancho
+        spans.forEach(span => {
+            span.classList.toggle("hidden");
+        });
+    } else {
+        // En desktop, comportamiento normal
+        sidebar.classList.toggle("mini");
+        spans.forEach(span => {
+            span.classList.toggle("hidden");
+        });
+    }
 });
 
 

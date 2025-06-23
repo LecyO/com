@@ -25,6 +25,15 @@ document.addEventListener("click", (e) => {
     }
 });
 
+// Botón de minimizar barra lateral en compu
+const desktopToggle = document.getElementById("desktop-toggle");
+
+desktopToggle.addEventListener("click", () => {
+    if(window.innerWidth > 767){
+        sidebar.classList.toggle("mini");
+    }
+});
+
 
 //LOGIN
 

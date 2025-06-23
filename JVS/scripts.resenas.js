@@ -6,19 +6,32 @@ document.addEventListener("DOMContentLoaded", function() {
     const celuBtn = document.querySelector(".celu-btn");
     const overlay = document.querySelector(".sidebar-overlay");
     
-    // 1.version mini
+    //mini
     function toggleMiniSidebar() {
         sidebar.classList.toggle("mini");
         spans.forEach(span => span.classList.toggle("hidden"));
     }
     
-    // 2. menu celu
+    // menu celu
     function toggleMobileMenu() {
         sidebar.classList.toggle("active");
+        overlay.style.display = sidebar.classList.contains("active") ? "block" : "none";
         document.body.style.overflow = sidebar.classList.contains("active") ? "hidden" : "auto";
     }
     
-    // Eventos del menú mini
+    // Cerrar menú al hacer clic en un enlace
+    if (window.innerWidth <= 992) {
+        const sidebarLinks = document.querySelectorAll(".sidebar button");
+        sidebarLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                if (sidebar.classList.contains("active")) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+    }
+    
+    // Eventos del menú mini 
     if(menu) menu.addEventListener("click", toggleMiniSidebar);
     
     // Eventos del menú celu
@@ -34,9 +47,14 @@ document.addEventListener("DOMContentLoaded", function() {
     // Ajustes al cambiar tamaño de pantalla
     window.addEventListener("resize", function() {
         if(window.innerWidth > 992) {
-            sidebar.classList.remove("active", "mini");
+            // Desktop - resetear estilos móviles
+            sidebar.classList.remove("active");
+            overlay.style.display = "none";
             document.body.style.overflow = "auto";
-            spans.forEach(span => span.classList.remove("hidden"));
+        } else {
+            // sidebar hidden
+            sidebar.classList.remove("active");
+            overlay.style.display = "none";
         }
     });
     

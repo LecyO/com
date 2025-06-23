@@ -601,7 +601,7 @@ body.menu-open {
         height: 100%;
         width: 280px;
         transition: transform 0.3s ease;
-        z-index: 1111;
+        z-index: 999;
     }
     
     .sidebar.active {

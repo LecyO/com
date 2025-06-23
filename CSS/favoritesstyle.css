@@ -73,13 +73,7 @@
         transform: translateX(0);
     }
 
-/* Ajustar el main-content cuando barra mini o barra oculta */
-.main-content {
-    margin-left: 250px;
-    max-width: 1200px;
-    padding: 0 15px;
-    transition: margin-left 0.3s ease;
-}
+
 
 /* Cuando sidebar mini (desktop) */
 .sidebar.mini ~ .main-content {
@@ -258,7 +252,6 @@ body {
 {
     margin-left: 250px;
     max-width: 1200px; 
-    margin: 0 auto;
     padding: 0 15px;
     transition: margin-left 0.3s ease;
 }

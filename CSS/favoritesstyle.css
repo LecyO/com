@@ -68,7 +68,6 @@
     padding: 20px 15px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; 
     z-index: 1400;
     overflow-y: auto; 
     transition: width 0.3s ease, transform 0.3s ease;

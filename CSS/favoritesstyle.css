@@ -428,7 +428,7 @@ body {
     position: fixed;
     top: 15px;
     left: 15px;
-    background: var(--accent-color);
+    background: var(--secondary-color);
     padding: 10px;
     border-radius: 50%;
     z-index: 1100;

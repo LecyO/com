@@ -12,7 +12,31 @@
 /* FIN COLORES*/
 
 /*-----------------------BARRA LATERAL-------------------------*/
-        
+
+/* BOTÓN CELU */
+.mobile-menu-btn {
+    display: none; 
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1500;
+    background: var(--primary-color);
+    border: none;
+    color: var(--white);
+    font-size: 24px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Mostrar solo en celuares */
+@media (max-width: 767px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+
+
 .sidebar 
 {
     position: fixed;
@@ -26,9 +50,14 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start; 
-    z-index: 1000;
+    z-index: 1400;
     overflow-y: auto; 
-    transition: transform 0.3s ease;
+    transition: width 0.3s ease, transform 0.3s ease;
+}
+
+/* Barra lateral en mini */
+.sidebar.mini {
+    width: 80px;
 }
 
 /* Ocultar barra lateral en móviles */
@@ -36,12 +65,48 @@
     .sidebar {
         transform: translateX(-260px);
         box-shadow: 3px 0 10px rgba(0,0,0,0.3);
+        width: 250px;
+
     }
 
     .sidebar.active {
         transform: translateX(0);
     }
 }
+
+/* Ajustar el main-content cuando barra mini o barra oculta */
+.main-content {
+    margin-left: 250px;
+    max-width: 1200px;
+    padding: 0 15px;
+    transition: margin-left 0.3s ease;
+}
+
+/* Cuando sidebar mini (desktop) */
+.sidebar.mini ~ .main-content {
+    margin-left: 80px;
+}
+
+/* Cuando barra oculta en móvil */
+@media (max-width: 767px) {
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+/* ICONO MENU en barra lateral  */
+.sidebar .page-name ion-icon#menu {
+    font-size: 36px;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+/* Ocultar textos en barra lateral mini */
+.sidebar.mini span {
+    display: none;
+}
+
+
 
 .sidebar::-webkit-scrollbar {
     display: none;
@@ -54,18 +119,6 @@
     display: flex;
     align-items: center;
     margin-bottom: 30px;
-}
-
-/* Botón hamburguesa */
-.hamburger-btn {
-    background: none;
-    border: none;
-    color: var(--primary-color);
-    font-size: 30px;
-    cursor: pointer;
-    padding: 0;
-    margin-right: 10px;
-}
 
 .sidebar .page-name span
 {
@@ -75,7 +128,7 @@
     transition: opacity 0.3s ease;
 }
 
-/* Buttons */
+/* botones laterales */
 .sidebar button
 {
     width: 100%;

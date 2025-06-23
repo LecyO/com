@@ -1,35 +1,54 @@
-const menu = document.getElementById("menu");
-const sidebar = document.querySelector(".sidebar");
-const spans = document.querySelectorAll(".sidebar span:not(.page-name span)");
-
-
-menu.addEventListener("click", () => {
-    if (window.innerWidth <= 768) {
-        // En móviles, solo mostrar/ocultar los textos sin cambiar el ancho
-        spans.forEach(span => {
-            span.classList.toggle("hidden");
-        });
-    } else {
-        // En desktop, comportamiento normal
+document.addEventListener("DOMContentLoaded", function() {
+    // DOM
+    const menu = document.getElementById("menu");
+    const sidebar = document.querySelector(".sidebar");
+    const spans = document.querySelectorAll(".sidebar span:not(.page-name span)");
+    const celuBtn = document.querySelector(".celu-btn");
+    const overlay = document.querySelector(".sidebar-overlay");
+    
+    // 1.version mini
+    function toggleMiniSidebar() {
         sidebar.classList.toggle("mini");
-        spans.forEach(span => {
-            span.classList.toggle("hidden");
+        spans.forEach(span => span.classList.toggle("hidden"));
+    }
+    
+    // 2. menu celu
+    function toggleMobileMenu() {
+        sidebar.classList.toggle("active");
+        document.body.style.overflow = sidebar.classList.contains("active") ? "hidden" : "auto";
+    }
+    
+    // Eventos del menú mini
+    if(menu) menu.addEventListener("click", toggleMiniSidebar);
+    
+    // Eventos del menú celu
+    if(celuBtn) {
+        celuBtn.addEventListener("click", function(e) {
+            e.stopPropagation();
+            toggleMobileMenu();
         });
     }
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
+    
+    if(overlay) overlay.addEventListener("click", toggleMobileMenu);
+    
+    // Ajustes al cambiar tamaño de pantalla
+    window.addEventListener("resize", function() {
+        if(window.innerWidth > 992) {
+            sidebar.classList.remove("active", "mini");
+            document.body.style.overflow = "auto";
+            spans.forEach(span => span.classList.remove("hidden"));
+        }
+    });
+    
+    // RESEÑAS
     const reviewForm = document.getElementById('reviewForm');
     const testimonialGrid = document.querySelector('.testimonial-grid');
     const stars = document.querySelectorAll('.rating-stars .star');
     const ratingInput = document.getElementById('ratingValue');
     
-    // Cargar reseñas guardadas
     let reviews = JSON.parse(localStorage.getItem('productReviews')) || [];
 
     function renderReviews() {
-   
         const dynamicReviews = document.querySelectorAll('.testimonial-card.dynamic');
         dynamicReviews.forEach(review => review.remove());
         
@@ -39,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const testimonialCard = document.createElement('div');
             testimonialCard.className = 'testimonial-card dynamic';
             
-            // Crear estrellas según la calificación
             let starsHTML = '';
             for (let i = 0; i < 5; i++) {
                 starsHTML += i < review.rating ? 
@@ -47,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     '<i class="far fa-star"></i>';
             }
             
-            // Agg a HTML con estructura
             testimonialCard.innerHTML = `
                 <div class="testimonial-rating">
                     ${starsHTML}
@@ -60,13 +77,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // estrellas
     stars.forEach(star => {
         star.addEventListener('click', function() {
             const value = parseInt(this.getAttribute('data-value'));
             ratingInput.value = value;
             
-            // Actualizar vista de estrellas
             stars.forEach((s, i) => {
                 s.classList.toggle('active', i < value);
                 s.innerHTML = i < value ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
@@ -74,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Manejar el envío del formulario
     reviewForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -87,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Crear nueva reseña
         const newReview = {
             userName,
             text: reviewText,
@@ -95,12 +108,10 @@ document.addEventListener('DOMContentLoaded', function() {
             date: new Date().toISOString()
         };
         
-        // Agregar a la lista, actualizar y guardar
         reviews.unshift(newReview);
         localStorage.setItem('productReviews', JSON.stringify(reviews));
         
         renderReviews();
-        
         reviewForm.reset();
         ratingInput.value = 0;
         stars.forEach(star => {
@@ -112,58 +123,54 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     renderReviews();
-});
-
-
-//scroll    
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault(); 
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-   
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+    
+    // scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
-});
+    
+    // LOGIN
+    const loginBtn = document.getElementById('login-btn');
+    const loginModal = document.createElement('div');
 
+    loginModal.innerHTML = `
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Iniciar Sesión</h2>
+            <form id="login-form" class="modal-form">
+                <div class="form-group">
+                    <input type="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="modal-submit-btn">Ingresar</button>
+                <p class="modal-footer-text">¿No tienes cuenta? <a href="#" id="register-link">Regístrate</a></p>
+            </form>
+        </div>
+    </div>`;
 
-const loginBtn = document.getElementById('login-btn');
-const loginModal = document.createElement('div');
+    document.body.appendChild(loginModal);
 
-loginModal.innerHTML = `
-<div id="login-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <h2 class="modal-title">Iniciar Sesión</h2>
-        <form id="login-form" class="modal-form">
-            <div class="form-group">
-                <input type="email" placeholder="Correo electrónico" required>
-            </div>
-            <div class="form-group">
-                <input type="password" placeholder="Contraseña" required>
-            </div>
-            <button type="submit" class="modal-submit-btn">Ingresar</button>
-            <p class="modal-footer-text">¿No tienes cuenta? <a href="#" id="register-link">Regístrate</a></p>
-        </form>
-    </div>
-</div>`;
+    loginBtn.addEventListener('click', () => {
+        document.getElementById('login-modal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
 
-document.body.appendChild(loginModal);
-
-// Control del modal
-loginBtn.addEventListener('click', () => {
-    document.getElementById('login-modal').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-});
-
-// Cerrar modal
-document.querySelector('#login-modal .close-modal').addEventListener('click', () => {
-    document.getElementById('login-modal').style.display = 'none';
-    document.body.style.overflow = 'auto';
+    document.querySelector('#login-modal .close-modal').addEventListener('click', () => {
+        document.getElementById('login-modal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
 });

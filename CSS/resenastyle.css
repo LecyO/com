@@ -83,7 +83,7 @@
 }
 
 
-/* Buttons */
+/* Botones */
 .sidebar button
 {
     width: 100%;
@@ -146,8 +146,6 @@
         width: 100%;
         height: auto;
         position: relative;
-        flex-direction: row;
-        flex-wrap: wrap;
         justify-content: center;
         padding: 10px;
     }

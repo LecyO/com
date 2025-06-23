@@ -663,10 +663,9 @@ body.menu-open {
 }
 
 /* Ajustes para pantallas medianas (problema de enlaces no clickeables) */
-@media (min-width: 768px) and (max-width: 992px) {
+@media (max-width: 768px) {
     .sidebar {
         width: 250px;
-        transform: none !important;
         left: 0 !important;
     }
     

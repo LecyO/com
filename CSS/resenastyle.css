@@ -606,7 +606,6 @@ body.menu-open {
     }
     
     .sidebar.active {
-        transform: translateX(280px);
         left: 0;
     }
     

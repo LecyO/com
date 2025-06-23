@@ -668,7 +668,7 @@ body {
 }
 
 /*Pantallas pequeñas*/
-@media (max-width: 480px) {
+@media (max-width: 400px) {
     .testimonial-card {
         padding: 1rem;
     }

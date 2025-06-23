@@ -119,9 +119,9 @@
     display: flex;
     align-items: center;
     margin-bottom: 30px;
+}
 
-.sidebar .page-name span
-{
+.sidebar .page-name span{
     font-size: 25px;
     color: var(--primary-color);
     opacity: 1;

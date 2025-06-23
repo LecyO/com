@@ -1,15 +1,26 @@
-const menuToggle = document.getElementById("menu-toggle");
+
+const menuIcon = document.getElementById("menu");
 const sidebar = document.getElementById("sidebar");
 
-menuToggle.addEventListener("click", () => {
+menuIcon.addEventListener("click", () => {
+    //  mini 
+    if(window.innerWidth > 767){
+        sidebar.classList.toggle("mini");
+    }
+});
+
+// boton celu
+const mobileMenuBtn = document.getElementById("mobile-menu-toggle");
+
+mobileMenuBtn.addEventListener("click", () => {
     sidebar.classList.toggle("active");
 });
 
-// Cerrar sidebar si se hace click fuera (opcional)
-document.addEventListener('click', (e) => {
+// Cerrar barra lateral móvil al hacer click fuera
+document.addEventListener("click", (e) => {
     if(window.innerWidth <= 767){
-        if(!sidebar.contains(e.target) && !menuToggle.contains(e.target)){
-            sidebar.classList.remove('active');
+        if(!sidebar.contains(e.target) && !mobileMenuBtn.contains(e.target)){
+            sidebar.classList.remove("active");
         }
     }
 });

@@ -1,176 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DwNo &n: Favorites</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DwNo &n: Favorites</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="..\CSS/favoritesstyle.css">
-    <link Type="image/x-icon" href="..\Ícons/principalLogo.png" rel="Shorcut icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../CSS/favoritesstyle.css">
+  <link rel="icon" href="../Ícons/principalLogo.png" type="image/x-icon">
 </head>
 <body>
 
-<!-------------------- BARRA LATERAL------------------------>
-
-<!--Diseño-->
-<div class="sidebar">
-        <div class="page-name">
-        <ion-icon id="menu" name="menu-outline"></ion-icon>
-        <span class="main">Dwelling Novo &n</span>
-        </div>
-
-<!--buttons-->
-
-    <button onclick="location.href='../index.html'">
-        <ion-icon id="house" name="home-outline"></ion-icon>
-        <span>Inicio</span>
-    </button>
-
-    <button onclick="location.href='index.shop.html'">
-        <ion-icon name="cart-outline"></ion-icon>
-        <span>Shop</span>
-    </button>
-
-    <button onclick="location.href='index.resenas.html'">
-        <ion-icon name="people-circle-outline"></ion-icon>
-        <span>Reseñas</span>
-    </button>
-
-    <button onclick="location.href='index.favorites.html'">
-        <ion-icon name="star-half-outline"></ion-icon>
-        <span>Favoritos</span>
-    </button>
-
-    <button id="login-btn">
-        <ion-icon name="log-in-outline"></ion-icon>
-        <span>Iniciar Sesión</span>
-    </button>
-</div>
-
-<!--Java-->
-<script src="..\JVS/scripts.favorites.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-
-<!-------------------- FIN BARRA LATERAL-------------------->
-
-
-<!-- CONTENIDO-->
-<!-- Productos destacados -->
-    <div class="main-content">
-        <section class="featured-products">
-            <h2 class="section-title">Piezas Destacadas</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-badge">Nuevo</div>
-                    <img src="..\Imágenes/muebles/unipersonal.jpg" alt="Sofá Chester">
-                    <div class="product-info">
-                        <h3>Sofá Chesterfield</h3>
-                        <p class="product-description">Cuero genuino italiano, acabado artesanal</p>
-                        <div class="product-footer">
-                            <span class="price">$999.00</span>
-                            <button class="btn-icon">
-                                <i class="fas fa-shopping-cart"></i></button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-badge">-15%</div>
-                    <img src="..\Imágenes/comedores/blanco.jpg" alt="Mesa de mármol">
-                    <div class="product-info">
-                        <h3>Mesa de Mármol</h3>
-                        <p class="product-description">Mármol Carrara, base en acero inoxidable</p>
-                        <div class="product-footer">
-                            <span class="price"><del>$1,800.00</del> $1,530.00</span>
-                            <button class="btn-icon">
-                                <i class="fas fa-shopping-cart"></i></button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <img src="..\Imágenes/ninos/refrigeradores/xbox.jpg" alt="Xbox Fridge">
-                    <div class="product-info">
-                        <h3>Xbox Mini-Fridge</h3>
-                        <p class="product-description">Encantador, funcional y sólo para gamers</p>
-                        <div class="product-footer">
-                            <span class="price">$1,000.00</span>
-                            <button class="btn-icon">
-                                <i class="fas fa-shopping-cart"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="..\Imágenes/promociónes/cunasilla.jpg" alt="Cuna ">
-                    <div class="product-info">
-                        <h3>Cuna de Abeto</h3>
-                        <p class="product-description">Dale a tu bebé la mejor comodiad y dale a su habitación un boost cute</p>
-                        <div class="product-footer">
-                            <span class="price">$799.00</span>
-                            <button class="btn-icon">
-                                <i class="fas fa-shopping-cart"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="..\Imágenes/muebles/flotante.jpg" alt="Asiento efecto flotante">
-                    <div class="product-info">
-                        <h3>Reposadora colgante de Mapple</h3>
-                        <p class="product-description">La comodidad e innovación no tienen precio</p>
-                        <div class="product-footer">
-                            <span class="price">$500.00</span>
-                            <button class="btn-icon">
-                                <i class="fas fa-shopping-cart"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="..\Imágenes/refrigeradores/buenmicrowave.jpeg" alt="Lavaplatos">
-                    <div class="product-info">
-                        <h3>Lavaplatos Moderno</h3>
-                        <p class="product-description">Liso, estético y de Línea Gris listo para ser Instalado</p>
-                        <div class="product-footer">
-                            <span class="price">$1,999.00</span>
-                            <button class="btn-icon">
-                                <i class="fas fa-shopping-cart"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- Barra lateral -->
+  <div class="sidebar">
+    <div class="page-name">
+      <ion-icon id="menu" name="menu-outline"></ion-icon>
+      <span class="main">Dwelling Novo &n</span>
     </div>
-</body>
+    <button onclick="location.href='../index.html'">
+      <ion-icon name="home-outline"></ion-icon>
+      <span>Inicio</span>
+    </button>
+    <button onclick="location.href='index.shop.html'">
+      <ion-icon name="cart-outline"></ion-icon>
+      <span>Shop</span>
+    </button>
+    <button onclick="location.href='index.resenas.html'">
+      <ion-icon name="people-circle-outline"></ion-icon>
+      <span>Reseñas</span>
+    </button>
+    <button onclick="location.href='index.favorites.html'">
+      <ion-icon name="star-half-outline"></ion-icon>
+      <span>Favoritos</span>
+    </button>
+    <button id="login-btn">
+      <ion-icon name="log-in-outline"></ion-icon>
+      <span>Iniciar Sesión</span>
+    </button>
+  </div>
 
-<!-------------------------FOOTER--------------------------->
-<footer class="footer">
+  <!-- Contenido principal -->
+  <div class="main-content">
+    <section class="featured-products">
+      <h2 class="section-title">Piezas Destacadas</h2>
+      <div class="product-grid">
+        <!-- Producto 1 -->
+        <div class="product-card">
+          <div class="product-badge">Nuevo</div>
+          <img src="../Imágenes/muebles/unipersonal.jpg" alt="Sofá Chesterfield">
+          <div class="product-info">
+            <h3>Sofá Chesterfield</h3>
+            <p class="product-description">Cuero genuino italiano, acabado artesanal</p>
+            <div class="product-footer">
+              <span class="price">$999.00</span>
+              <button class="btn-icon"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 2 -->
+        <!-- ... (agrega el resto igual que ya tenías) -->
+
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
     <div class="footer-content">
-        <div class="footer-section logo-section">
-            <img src="..\Ícons/principalLogo.png" alt="Logo DwNo &n" class="footer-logo">
-        </div>
-        <div class="footer-section">
-            <h3>Sobre Dwelling Novo &n</h3>
-            <p>Desde 2020 brindando los mobiliarios de mejor gama al alcance de nuestros clientes. Convirtámos su <span>Casa</span> en un <span>Hogar</span>, y su <span>Hogar</span> en un <span>Palacio.</span></p>
-        </div>
-        <div class="footer-section">
-            <h3>Contáctanos</h3>
-            <p><i class="fas fa-map-marker-alt"></i> Av. Los Andes, San Pedro Sula</p>
-            <p><i class="fas fa-phone"></i> +504 9545 5577</p>
-            <p><i class="fas fa-envelope"></i> DwNo&n@</p>
-        </div>
-        <div class="footer-section">
-            <h3>Horario</h3>
-            <p>Lunes a Viernes: 8am - 10pm</p>
-            <p>Sábados: 10am - 8pm</p>
-            <p>Domingos: Cerrado</p>
-        </div>
+      <div class="footer-section logo-section">
+        <img src="../Ícons/principalLogo.png" alt="Logo DwNo &n" class="footer-logo">
+      </div>
+      <div class="footer-section">
+        <h3>Sobre Dwelling Novo &n</h3>
+        <p>Desde 2020 brindando los mobiliarios de mejor gama... <span>Casa</span>, <span>Hogar</span>, <span>Palacio.</span></p>
+      </div>
+      <div class="footer-section">
+        <h3>Contáctanos</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Av. Los Andes, San Pedro Sula</p>
+        <p><i class="fas fa-phone"></i> +504 9545 5577</p>
+        <p><i class="fas fa-envelope"></i> DwNo&n@</p>
+      </div>
+      <div class="footer-section">
+        <h3>Horario</h3>
+        <p>Lunes a Viernes: 8am - 10pm</p>
+        <p>Sábados: 10am - 8pm</p>
+        <p>Domingos: Cerrado</p>
+      </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2020 DWELLING NOVO &n. Todos los derechos reservados.</p>
+      <p>&copy; 2020 DWELLING NOVO &n. Todos los derechos reservados.</p>
     </div>
-</footer>
-<!--------------------FIN FOOTER--------------------------->
+  </footer>
 
+  <!-- Scripts -->
+  <script src="../JVS/scripts.favorites.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
 </html>

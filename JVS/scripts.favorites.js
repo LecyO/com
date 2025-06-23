@@ -1,41 +1,60 @@
+const menuToggle = document.getElementById("menu-toggle");
+const sidebar = document.getElementById("sidebar");
 
-const menu = document.getElementById("menu");
-const sidebar = document.querySelector(".sidebar");
-
-menu.addEventListener("click", () => {
-  sidebar.classList.toggle("active");
+menuToggle.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
 });
 
-// LOGIN 
-const loginBtn = document.getElementById('login-btn');
-const loginModal = document.createElement('div');
+// Cerrar sidebar si se hace click fuera (opcional)
+document.addEventListener('click', (e) => {
+    if(window.innerWidth <= 767){
+        if(!sidebar.contains(e.target) && !menuToggle.contains(e.target)){
+            sidebar.classList.remove('active');
+        }
+    }
+});
 
-loginModal.innerHTML = `
+
+//LOGIN
+
+const loginBtn = document.getElementById('login-btn');
+const loginModalHTML = `
 <div id="login-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal">&times;</span>
-    <h2 class="modal-title">Iniciar Sesión</h2>
-    <form id="login-form" class="modal-form">
-      <div class="form-group">
-        <input type="email" placeholder="Correo electrónico" required>
-      </div>
-      <div class="form-group">
-        <input type="password" placeholder="Contraseña" required>
-      </div>
-      <button type="submit" class="modal-submit-btn">Ingresar</button>
-      <p class="modal-footer-text">¿No tienes cuenta? <a href="#" id="register-link">Regístrate</a></p>
-    </form>
-  </div>
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 class="modal-title">Iniciar Sesión</h2>
+        <form id="login-form" class="modal-form">
+            <div class="form-group">
+                <input type="email" placeholder="Correo electrónico" required>
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Contraseña" required>
+            </div>
+            <button type="submit" class="modal-submit-btn">Ingresar</button>
+            <p class="modal-footer-text">¿No tienes cuenta? <a href="#" id="register-link">Regístrate</a></p>
+        </form>
+    </div>
 </div>`;
 
-document.body.appendChild(loginModal);
+document.body.insertAdjacentHTML('beforeend', loginModalHTML);
+
+const loginModal = document.getElementById('login-modal');
+const closeModalBtn = loginModal.querySelector('.close-modal');
 
 loginBtn.addEventListener('click', () => {
-  document.getElementById('login-modal').style.display = 'block';
-  document.body.style.overflow = 'hidden';
+    loginModal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
 });
 
-document.querySelector('#login-modal .close-modal').addEventListener('click', () => {
-  document.getElementById('login-modal').style.display = 'none';
-  document.body.style.overflow = 'auto';
+closeModalBtn.addEventListener('click', () => {
+    loginModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+// Cerrar modal si se da click fuera del contenido
+loginModal.addEventListener('click', (e) => {
+    if(e.target === loginModal){
+        loginModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
 });

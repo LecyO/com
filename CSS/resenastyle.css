@@ -601,7 +601,7 @@ body.menu-open {
         height: 100%;
         width: 280px;
         transition: transform 0.3s ease;
-        z-index: 1000;
+        z-index: 1111;
     }
     
     .sidebar.active {
@@ -629,7 +629,7 @@ body.menu-open {
         right: 0;
         bottom: 0;
         background: rgba(0,0,0,0.5);
-        z-index:1111;
+        z-index:1000;
     }
     
     .celu-btn {
